@@ -1,0 +1,48 @@
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+  crossorigin="anonymous">
+<header></header>
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Name</th>
+          <th>Daily Budget</th>
+          <th>Total Budget</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="campaign in $ctrl.campaigns">
+            <td>
+                <span class="badge" ng-class="[{'badge-primary': $ctrl.checkStatus('{{campaign.status}}')}, {'badge-secondary': !$ctrl.checkStatus('{{campaign.status}}')}]">{{campaign.status}}</span>
+            </td>
+            <td>{{campaign.name}}</td>
+            <td>${{campaign.daily_budget}}</td>
+            <td>${{campaign.total_budget}}</td>
+            <td>
+                <div class="dropdown show">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Actions
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" ng-show="$ctrl.checkStatus(campaign.status)" ng-click="$ctrl.deactivateStatus(campaign.id)">
+                        Deactivate
+                    </a>
+                    <a class="dropdown-item" ng-show="!$ctrl.checkStatus(campaign.status)" ng-click="$ctrl.deactivateStatus(campaign.id)">
+                        Activate
+                    </a>
+                    <a class="dropdown-item" ui-sref="campaign-stats({campaignId: campaign.id})">
+                        Stats
+                    </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
