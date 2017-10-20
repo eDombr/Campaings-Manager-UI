@@ -1,21 +1,28 @@
+import cloneDeep from 'lodash/cloneDeep';
+
 class campaignStatsController {
     constructor(Campaign, $stateParams, Notification, CHART_CONFIG) {
-        "ngInject";
+		"ngInject";
+
         this._Campaign = Campaign;
         this._Notification = Notification;
 
-        this.campaignId = $stateParams.campaignId;
+		this.chartConfig = cloneDeep(CHART_CONFIG);
+		
+		this.campaignId = $stateParams.campaignId;
+		this.campaigns = [];
+		this.currentCampaign = {};
+
         this.getCampaignStats(this.campaignId);
         this.getCampaigns();
-
-        this.chartConfig = CHART_CONFIG;
     }
 
     getCampaignStats(id) {
         this._Campaign.getCampaignStats(id)
             .then(
                 data => {
-                    this.campaignStats = data;
+					this.campaignStats = data;
+
                     this.campaignStats.forEach(item => {
                         this.chartConfig.series[0].data.push(item.impressions);
                         this.chartConfig.xAxis.categories.push(item.date);
