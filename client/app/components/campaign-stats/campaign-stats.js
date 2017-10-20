@@ -5,7 +5,7 @@ import highcharts from 'highcharts-ng';
 
 let campaignStatsModule = angular.module('app.campaign-stats', [
   uiRouter,
-  highcharts
+  highcharts,
 ])
 
 .config(($stateProvider) => {

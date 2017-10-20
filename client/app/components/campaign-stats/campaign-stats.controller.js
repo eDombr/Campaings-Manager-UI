@@ -1,11 +1,12 @@
 class campaignStatsController {
-  constructor(Campaign, $stateParams) {
+  constructor(Campaign, $stateParams, Notification) {
     "ngInject";
     this.name = 'campaignStats';
     this._Campaign = Campaign;
     this.campaignId = $stateParams.campaignId;
     this.getCampaignStats(this.campaignId);
     this.getCampaigns();
+    this._Notification = Notification;
 
     this.chartConfig = {
       chart: {
@@ -41,6 +42,9 @@ class campaignStatsController {
             this.chartConfig.series[0].data.push(item.impressions);
             this.chartConfig.xAxis.categories.push(item.date);
           });
+        },
+        err => {
+            this._Notification.error(err.data.error.message);
         }
       )
   }
@@ -51,6 +55,9 @@ class campaignStatsController {
         data => {
           this.campaigns = data;
           this.currentCampaign = this.campaigns.find(item => item.id === this.campaignId);
+        },
+        err => {
+            this._Notification.error(err.data.error.message);
         }
       );
   }
