@@ -12,11 +12,17 @@ angular.module('app', [
         Components,
         Services
     ])
-    .config(($locationProvider) => {
+    .config(($locationProvider, $provide) => {
         "ngInject";
-        // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
-        // #how-to-configure-your-server-to-work-with-html5mode
-        $locationProvider.html5Mode(true).hashPrefix('!');
+
+        $provide.decorator('$http', ($delegate) => {
+            $delegate.getDataFromResult = (result) => {
+                return result.data;
+            };
+            return $delegate;
+        });
+
+        $locationProvider.html5Mode(true);
     })
 
     .component('app', AppComponent);

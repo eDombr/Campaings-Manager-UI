@@ -9,24 +9,21 @@ class CampaignService {
 
     getCampaigns() {
         return this._$http.get(`${this.baseUrl}`)
-            .then(result => {
-                return result.data;
-            });
+            .then(this._$http.getDataFromResult);
     }
 
     activateStatus(id) {
         return this._$http.post(`${this.baseUrl}/${id}/activate`)
+        then(this._$http.getDataFromResult);
     }
 
     deactivateStatus(id) {
-        return this._$http.post(`${this.baseUrl}/${id}/deactivate`)
+        return this._$http.post(`${this.baseUrl}/${id}/deactivate`);
     }
 
     getCampaignStats(id) {
         return this._$http.get(`${this.baseUrl}/${id}/stats`)
-            .then(result => {
-                return result.data;
-            })
+            .then(this._$http.getDataFromResult);
     }
 }
 

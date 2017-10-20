@@ -1,5 +1,5 @@
 class campaignStatsController {
-    constructor(Campaign, $stateParams, Notification) {
+    constructor(Campaign, $stateParams, Notification, CHART_CONFIG) {
         "ngInject";
         this._Campaign = Campaign;
         this._Notification = Notification;
@@ -8,29 +8,7 @@ class campaignStatsController {
         this.getCampaignStats(this.campaignId);
         this.getCampaigns();
 
-        this.chartConfig = {
-            chart: {
-                type: 'spline'
-            },
-            xAxis: {
-                categories: []
-            },
-            yAxis: {
-                title: {
-                    text: 'Impressions'
-                }
-            },
-            series: [{
-                data: []
-            }],
-            title: {
-                text: false
-            },
-            legend: {
-                enabled: false
-            },
-            credits: false
-        }
+        this.chartConfig = CHART_CONFIG;
     }
 
     getCampaignStats(id) {
