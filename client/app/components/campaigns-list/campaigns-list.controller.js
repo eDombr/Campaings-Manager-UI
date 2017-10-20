@@ -19,24 +19,27 @@ class campaignsListController {
     }
 
     activateStatus(id) {
-        this._Campaign.activateStatus(id)
-            .then(
-                data => {
-                    let index = this.campaigns.findIndex(item, () => item.id = id);
-                    this.campaigns[index].status = 'ACTIVE';
-                }
-            )
+        // this._Campaign.activateStatus(id)
+        //     .then(
+        //         data => {
+        //             let index = this.campaigns.findIndex(item => item.id === id);
+        //             this.campaigns[index].status = 'ACTIVE';
+        //         }
+        //     )
+        let index = this.campaigns.findIndex(item => item.id === id);
+        this.campaigns[index].status = 'ACTIVE';
     }
 
     deactivateStatus(id) {
-        console.log(id);
-        this._Campaign.deactivateStatus(id)
-            .then(
-                data => {
-                    let index = this.campaigns.findIndex(item, () => item.id = id);
-                    this.campaigns[index].status = 'INACTIVE';
-                }
-            )
+        // this._Campaign.deactivateStatus(id)
+        //     .then(
+        //         data => {
+        //             let index = this.campaigns.findIndex(item => item.id === id);
+        //             this.campaigns[index].status = 'INACTIVE';
+        //         }
+        //     )
+        let index = this.campaigns.findIndex(item => item.id === id);
+        this.campaigns[index].status = 'INACTIVE';
     }
 
     checkStatus(status) {

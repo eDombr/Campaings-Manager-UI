@@ -1,9 +1,11 @@
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 import campaignStatsComponent from './campaign-stats.component';
+import highcharts from 'highcharts-ng';
 
 let campaignStatsModule = angular.module('app.campaign-stats', [
-  uiRouter
+  uiRouter,
+  highcharts
 ])
 
 .config(($stateProvider) => {
