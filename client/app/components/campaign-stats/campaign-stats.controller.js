@@ -9,7 +9,7 @@ class campaignStatsController {
 
     this.chartConfig = {
       chart: {
-        type: 'line'
+        type: 'spline'
       },
       xAxis: {
         categories: []
@@ -19,14 +19,6 @@ class campaignStatsController {
             text: 'Impressions'
         }
       },
-      // plotOptions: {
-      //     line: {
-      //         dataLabels: {
-      //             enabled: true
-      //         },
-      //         enableMouseTracking: false
-      //     }
-      // },
       series: [{
         data: []
       }],

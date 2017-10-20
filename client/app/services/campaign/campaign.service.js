@@ -1,7 +1,3 @@
-// let userService = function() {
-
-// }
-
 class CampaignService {
     constructor($http) {
         'ngInject';
