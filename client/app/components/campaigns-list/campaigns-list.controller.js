@@ -5,6 +5,11 @@ class campaignsListController {
 
         this._Campaign = Campaign;
         this._Notification = Notification;
+
+        this.statusConfig = {
+            active: 'ACTIVE',
+            inactive: 'INACTIVE'
+        }
         
         this.getCampaigns();
     }
@@ -26,7 +31,10 @@ class campaignsListController {
             .then(
                 data => {
                     let index = this.campaigns.findIndex(item => item.id === id);
-                    this.campaigns[index].status = 'ACTIVE';
+
+                    if (index !== -1) {
+                        this.campaigns[index].status = this.statusConfig.active;
+                    }
                 },
                 err => {
                     this._Notification.error(err.data.error.message);
@@ -39,7 +47,10 @@ class campaignsListController {
             .then(
                 data => {
                     let index = this.campaigns.findIndex(item => item.id === id);
-                    this.campaigns[index].status = 'INACTIVE';
+
+                    if(index !== -1) {
+                        this.campaigns[index].status = this.statusConfig.inactive;
+                    }
                 },
                 err => {
                     this._Notification.error(err.data.error.message);
@@ -48,7 +59,7 @@ class campaignsListController {
     }
 
     checkStatus(status) {
-        return status === 'ACTIVE';
+        return status === this.statusConfig.active;
     }
 
 }

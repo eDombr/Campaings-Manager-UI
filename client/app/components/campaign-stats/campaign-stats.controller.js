@@ -23,10 +23,13 @@ class campaignStatsController {
                 data => {
 					this.campaignStats = data;
 
-                    this.campaignStats.forEach(item => {
-                        this.chartConfig.series[0].data.push(item.impressions);
-                        this.chartConfig.xAxis.categories.push(item.date);
-                    });
+					if(this.campaignStats) {
+						this.campaignStats.forEach(item => {
+							this.chartConfig.series[0].data.push(item.impressions);
+							this.chartConfig.xAxis.categories.push(item.date);
+						});
+					}
+
                 },
                 err => {
                     this._Notification.error(err.data.error.message);
@@ -38,8 +41,11 @@ class campaignStatsController {
         this._Campaign.getCampaigns()
             .then(
                 data => {
-                    this.campaigns = data;
-                    this.currentCampaign = this.campaigns.find(item => item.id === this.campaignId);
+					this.campaigns = data;
+
+					if(this.campaigns) {
+						this.currentCampaign = this.campaigns.find(item => item.id === this.campaignId);
+					}
                 },
                 err => {
                     this._Notification.error(err.data.error.message);
