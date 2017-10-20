@@ -3,9 +3,9 @@ import controller from './campaigns-list.controller';
 import './campaigns-list.scss';
 
 let campaignsListComponent = {
-  bindings: {},
-  template,
-  controller
+    bindings: {},
+    template,
+    controller
 };
 
 export default campaignsListComponent;

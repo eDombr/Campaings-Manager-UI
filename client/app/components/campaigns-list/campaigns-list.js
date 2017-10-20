@@ -3,23 +3,23 @@ import uiRouter from '@uirouter/angularjs';
 import campaignsListComponent from './campaigns-list.component';
 
 let campaignsListModule = angular.module('app.Campaigns-list', [
-  uiRouter
-])
+        uiRouter
+    ])
 
-.config(($stateProvider, $urlRouterProvider) => {
-  "ngInject";
+    .config(($stateProvider, $urlRouterProvider) => {
+        "ngInject";
 
-  $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/');
 
-  $stateProvider
-    .state('campaigns-list', {
-      url: '/',
-      component: 'campaignsList'
-    });
-})
+        $stateProvider
+            .state('campaigns-list', {
+                url: '/',
+                component: 'campaignsList'
+            });
+    })
 
-.component('campaignsList', campaignsListComponent)
-  
-.name;
+    .component('campaignsList', campaignsListComponent)
+
+    .name;
 
 export default campaignsListModule;

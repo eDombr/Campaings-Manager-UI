@@ -3,10 +3,10 @@ class campaignsListController {
     constructor(Campaign, Notification) {
         'ngInject';
 
-        this.name = 'campaignsList';
         this._Campaign = Campaign;
-        this.getCampaigns();
         this._Notification = Notification;
+        
+        this.getCampaigns();
     }
 
     getCampaigns() {
@@ -52,5 +52,5 @@ class campaignsListController {
     }
 
 }
-  
+
 export default campaignsListController;

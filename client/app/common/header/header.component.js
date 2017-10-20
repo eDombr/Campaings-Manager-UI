@@ -3,9 +3,9 @@ import controller from './header.controller';
 import './header.scss';
 
 let headerComponent = {
-  bindings: {},
-  template,
-  controller
+    bindings: {},
+    template,
+    controller
 };
 
 export default headerComponent;

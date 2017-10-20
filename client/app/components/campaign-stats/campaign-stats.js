@@ -2,23 +2,24 @@ import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
 import campaignStatsComponent from './campaign-stats.component';
 import highcharts from 'highcharts-ng';
+import 'highcharts-ng/dist/highcharts-ng.css';
 
 let campaignStatsModule = angular.module('app.campaign-stats', [
-  uiRouter,
-  highcharts,
-])
+        uiRouter,
+        highcharts,
+    ])
 
-.config(($stateProvider) => {
-  "ngInject";
-  $stateProvider
-    .state('campaign-stats', {
-      url: '/campaign-stats/:campaignId',
-      component: 'campaignStats'
-    });
-})
+    .config(($stateProvider) => {
+        "ngInject";
+        $stateProvider
+            .state('campaign-stats', {
+                url: '/campaign-stats/:campaignId',
+                component: 'campaignStats'
+            });
+    })
 
-.component('campaignStats', campaignStatsComponent)
-  
-.name;
+    .component('campaignStats', campaignStatsComponent)
+
+    .name;
 
 export default campaignStatsModule;

@@ -1,45 +1,45 @@
 <header></header>
 <div class="container">
-  <div class="row">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Status</th>
-          <th>Name</th>
-          <th>Daily Budget</th>
-          <th>Total Budget</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="campaign in $ctrl.campaigns">
-            <td>
-                <span class="badge" ng-class="[{'badge-primary': $ctrl.checkStatus(campaign.status)}, {'badge-secondary': !$ctrl.checkStatus(campaign.status)}]">{{campaign.status}}</span>
-            </td>
-            <td>{{campaign.name}}</td>
-            <td>${{campaign.daily_budget}}</td>
-            <td>${{campaign.total_budget}}</td>
-            <td>
-                <div class="dropdown show">
-                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Actions
-                    </button>
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Name</th>
+                    <th>Daily Budget</th>
+                    <th>Total Budget</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="campaign in $ctrl.campaigns">
+                    <td>
+                        <span class="badge" ng-class="[{'badge-primary': $ctrl.checkStatus(campaign.status)}, {'badge-secondary': !$ctrl.checkStatus(campaign.status)}]">{{campaign.status}}</span>
+                    </td>
+                    <td>{{campaign.name}}</td>
+                    <td>${{campaign.daily_budget}}</td>
+                    <td>${{campaign.total_budget}}</td>
+                    <td>
+                        <div class="dropdown show">
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                            </button>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <button class="dropdown-item" ng-show="$ctrl.checkStatus(campaign.status)" ng-click="$ctrl.deactivateStatus(campaign.id)">
-                            Deactivate
-                        </button>
-                        <button class="dropdown-item" ng-show="!$ctrl.checkStatus(campaign.status)" ng-click="$ctrl.activateStatus(campaign.id)">
-                            Activate
-                        </button>
-                        <a class="dropdown-item" ui-sref="campaign-stats({campaignId: campaign.id})">
-                            Stats
-                        </a>
-                    </div>
-                </div>
-            </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <button class="dropdown-item" ng-show="$ctrl.checkStatus(campaign.status)" ng-click="$ctrl.deactivateStatus(campaign.id)">
+                                    Deactivate
+                                </button>
+                                <button class="dropdown-item" ng-show="!$ctrl.checkStatus(campaign.status)" ng-click="$ctrl.activateStatus(campaign.id)">
+                                    Activate
+                                </button>
+                                <a class="dropdown-item" ui-sref="campaign-stats({campaignId: campaign.id})">
+                                    Stats
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

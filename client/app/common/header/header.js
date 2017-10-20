@@ -3,11 +3,11 @@ import uiRouter from '@uirouter/angularjs';
 import headerComponent from './header.component';
 
 let headerModule = angular.module('header', [
-  uiRouter
-])
+        uiRouter
+    ])
 
-.component('header', headerComponent)
-  
-.name;
+    .component('header', headerComponent)
+
+    .name;
 
 export default headerModule;

@@ -4,10 +4,9 @@ import CampaignsList from './campaigns-list/campaigns-list';
 
 
 let componentModule = angular.module('app.components', [
-  CampaignStats,
-  CampaignsList
-])
-
-.name;
+        CampaignStats,
+        CampaignsList
+    ])
+    .name;
 
 export default componentModule;
