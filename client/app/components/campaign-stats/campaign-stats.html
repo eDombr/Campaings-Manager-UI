@@ -9,7 +9,7 @@
                     Change Campaign
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" ng-repeat="campaign in $ctrl.campaigns" ui-sref="campaign-stats({campaignId: campaign.id})">{{campaign.name}}</a>
+                    <button class="dropdown-item" ng-repeat="campaign in $ctrl.campaigns" ng-click="$ctrl.setCurrentCompaign(campaign.id)">{{campaign.name}}</button>
                 </div>
             </div>
 

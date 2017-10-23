@@ -1,12 +1,10 @@
-import cloneDeep from 'lodash/cloneDeep';
-
 class campaignStatsController {
     constructor($stateParams, Campaign, CHART_CONFIG) {
 		"ngInject";
 
         this._Campaign = Campaign;
 
-		this.chartConfig = cloneDeep(CHART_CONFIG);
+		this.chartConfig = CHART_CONFIG;
 		
 		this.campaignId = $stateParams.campaignId;
 		this.campaigns = [];
@@ -21,7 +19,9 @@ class campaignStatsController {
         this._Campaign.getCampaignStats(id)
             .then(
                 data => {
-					this.campaignStats = data;
+                    this.campaignStats = data;
+                    this.chartConfig.series[0].data = [];
+                    this.chartConfig.xAxis.categories = [];
 
 					// transform a campaign stats's data to a data for charts
 					if(this.campaignStats) {
@@ -32,6 +32,15 @@ class campaignStatsController {
 					}
                 }
             )
+    }
+
+    /**
+     * setCurrentCompaign - sets current campaign and changes data for the chart of stats
+     * @param {*} id - campaign's id
+     */
+    setCurrentCompaign(id) {
+        this.currentCampaign = this.campaigns.find(item => item.id === id);
+        this.getCampaignStats(id);
     }
 
     getCampaigns() {
