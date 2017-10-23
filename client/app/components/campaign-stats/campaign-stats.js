@@ -11,6 +11,7 @@ let campaignStatsModule = angular.module('app.campaign-stats', [
 
     .config(($stateProvider) => {
         "ngInject";
+
         $stateProvider
             .state('campaign-stats', {
                 url: '/campaign-stats/:campaignId',

@@ -1,7 +1,7 @@
 import cloneDeep from 'lodash/cloneDeep';
 
 class campaignStatsController {
-    constructor(Campaign, $stateParams, Notification, CHART_CONFIG) {
+    constructor($stateParams, Campaign, CHART_CONFIG) {
 		"ngInject";
 
         this._Campaign = Campaign;

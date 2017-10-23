@@ -1,15 +1,12 @@
 class campaignsListController {
 
-    constructor(Campaign, Notification) {
+    constructor(Campaign, STATUS_CONFIG) {
         'ngInject';
 
         this._Campaign = Campaign;
-        this._Notification = Notification;
 
-        this.statusConfig = {
-            active: 'ACTIVE',
-            inactive: 'INACTIVE'
-        }
+        this.statusConfig = STATUS_CONFIG;
+        this.campaigns = [];
         
         this.getCampaigns();
     }
@@ -19,9 +16,6 @@ class campaignsListController {
             .then(
                 data => {
                     this.campaigns = data;
-                },
-                err => {
-                    this._Notification.error(err.data.error.message);
                 }
             );
     }
@@ -32,12 +26,9 @@ class campaignsListController {
                 data => {
                     let index = this.campaigns.findIndex(item => item.id === id);
 
-                    if (index !== -1) {
+                    if (index !== -1 && this.campaigns) {
                         this.campaigns[index].status = this.statusConfig.active;
                     }
-                },
-                err => {
-                    this._Notification.error(err.data.error.message);
                 }
             )
     }
@@ -48,12 +39,9 @@ class campaignsListController {
                 data => {
                     let index = this.campaigns.findIndex(item => item.id === id);
 
-                    if(index !== -1) {
+                    if(index !== -1 && this.campaigns) {
                         this.campaigns[index].status = this.statusConfig.inactive;
                     }
-                },
-                err => {
-                    this._Notification.error(err.data.error.message);
                 }
             )
     }

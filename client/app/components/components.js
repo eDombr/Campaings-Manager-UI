@@ -7,6 +7,7 @@ let componentModule = angular.module('app.components', [
         CampaignStats,
         CampaignsList
     ])
+
     .name;
 
 export default componentModule;
