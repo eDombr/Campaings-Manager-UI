@@ -1,5 +1,16 @@
 # Campaign Manager UI
 
-## The problem
+## Installation
 
-Our advertisers need a simple solution to view and manage the campaigns in their account and also get some stats.
+clone the repository
+
+```bash
+get clone https://github.com/eDombr/Campaings-Manager-UI.git
+```
+go to the project folder and install packages
+
+```bash
+npm install
+npm start
+```
+

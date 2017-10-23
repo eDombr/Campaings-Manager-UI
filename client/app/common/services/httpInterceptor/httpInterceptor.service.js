@@ -12,7 +12,6 @@ class httpInterceptorService {
      * @return - data from response object
      */
     response = (res) => {
-        console.log(res);
         return res.data;
     }
 
