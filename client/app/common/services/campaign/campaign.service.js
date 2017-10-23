@@ -15,19 +15,16 @@ class CampaignService {
     }
 
     /**
-     * activateStatus - activates status of campaign by id
+     * changeStatus - changes status of campaign by id
      * @param {*} id - campaign's id
+     * @param {*} isActivate - parameter to check a status
      */
-    activateStatus(id) {
-        return this._$http.post(`${this.baseUrl}/${id}/activate`);
-    }
-
-    /**
-     * deactivateStatus - deactivates status of campaign by id
-     * @param {*} id - campaign's id
-     */
-    deactivateStatus(id) {
-        return this._$http.post(`${this.baseUrl}/${id}/deactivate`);
+    changeStatus(id, isActivate) {
+        if (isActivate) {
+            return this._$http.post(`${this.baseUrl}/${id}/deactivate`);
+        } else {
+            return this._$http.post(`${this.baseUrl}/${id}/activate`);
+        }
     }
 
     /**

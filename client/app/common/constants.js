@@ -26,7 +26,7 @@ let constantsModule = angular.module('app.constants', [])
         credits: false
     })
     // STATUS_CONFIG - variants of campaign status
-    .constant('STATUS_CONFIG', {
+    .constant('CAMPAIGN_STATUSES', {
         active: 'ACTIVE',
         inactive: 'INACTIVE'
     })

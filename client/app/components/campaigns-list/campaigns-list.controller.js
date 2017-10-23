@@ -1,11 +1,11 @@
 class campaignsListController {
 
-    constructor(Campaign, STATUS_CONFIG) {
+    constructor(Campaign, CAMPAIGN_STATUSES) {
         'ngInject';
 
         this._Campaign = Campaign;
 
-        this.statusConfig = STATUS_CONFIG;
+        this.campaignStatuses = CAMPAIGN_STATUSES;
         this.campaigns = [];
         
         this.getCampaigns();
@@ -16,38 +16,32 @@ class campaignsListController {
             .then(
                 data => {
                     this.campaigns = data;
+                    
+                    // check campaign's status and add 'isActive' property
+                    if (this.campaigns) {
+                        this.campaigns.forEach(campaign => {
+                            if (this.checkStatus(campaign.status)) {
+                                campaign.isActive = true;
+                                return;
+                            }
+                            campaign.isActive = false;
+                        })
+                    }
                 }
             );
     }
 
-    activateStatus(id) {
-        this._Campaign.activateStatus(id)
-            .then(
-                data => {
-                    // finding the index of the activated campaign into the campaign's array
-                    let index = this.campaigns.findIndex(item => item.id === id);
-
-                    // if the index was found it would change the status on 'active'
-                    if (index !== -1 && this.campaigns) {
-                        this.campaigns[index].status = this.statusConfig.active;
+    changeStatus(id, isActive) {
+            this._Campaign.changeStatus(id, isActive)
+                .then(
+                    data => {
+                        // toggle status for specific campaign
+                        let campaignToActivate = this.campaigns.find(campaign => campaign.id === id);
+                        if (campaignToActivate) {
+                            campaignToActivate.isActive = !campaignToActivate.isActive;
+                        }
                     }
-                }
-            )
-    }
-
-    deactivateStatus(id) {
-        this._Campaign.deactivateStatus(id)
-            .then(
-                data => {
-                    // finding the index of the deactivated campaign into the campaign's array
-                    let index = this.campaigns.findIndex(item => item.id === id);
-
-                    // if the index was found it would change the status on 'active'
-                    if(index !== -1 && this.campaigns) {
-                        this.campaigns[index].status = this.statusConfig.inactive;
-                    }
-                }
-            )
+                )
     }
 
     /**
@@ -56,7 +50,7 @@ class campaignsListController {
      * @return - a boolean variable of status activation 
      */
     checkStatus(status) {
-        return status === this.statusConfig.active;
+        return status === this.campaignStatuses.active;
     }
 
 }

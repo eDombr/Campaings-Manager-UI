@@ -13,7 +13,7 @@
             <tbody>
                 <tr ng-repeat="campaign in $ctrl.campaigns">
                     <td>
-                        <span class="badge" ng-class="[{'badge-primary': $ctrl.checkStatus(campaign.status)}, {'badge-secondary': !$ctrl.checkStatus(campaign.status)}]">{{campaign.status}}</span>
+                        <span class="badge" ng-class="[{'badge-primary': campaign.isActive}, {'badge-secondary': !campaign.isActive}]">{{campaign.status}}</span>
                     </td>
                     <td>{{campaign.name}}</td>
                     <td>${{campaign.daily_budget}}</td>
@@ -25,10 +25,10 @@
                             </button>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <button class="dropdown-item" ng-show="$ctrl.checkStatus(campaign.status)" ng-click="$ctrl.deactivateStatus(campaign.id)">
+                                <button class="dropdown-item" ng-show="campaign.isActive" ng-click="$ctrl.changeStatus(campaign.id, campaign.isActive)">
                                     Deactivate
                                 </button>
-                                <button class="dropdown-item" ng-show="!$ctrl.checkStatus(campaign.status)" ng-click="$ctrl.activateStatus(campaign.id)">
+                                <button class="dropdown-item" ng-show="!campaign.isActive" ng-click="$ctrl.changeStatus(campaign.id, campaign.isActive)">
                                     Activate
                                 </button>
                                 <a class="dropdown-item" ui-sref="campaign-stats({campaignId: campaign.id})">
