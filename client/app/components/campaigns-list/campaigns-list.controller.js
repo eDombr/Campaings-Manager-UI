@@ -1,4 +1,4 @@
-class campaignsListController {
+class CampaignsListController {
 
     constructor(Campaign, CAMPAIGN_STATUSES) {
         'ngInject';
@@ -57,4 +57,4 @@ class campaignsListController {
 
 }
 
-export default campaignsListController;
+export default CampaignsListController;

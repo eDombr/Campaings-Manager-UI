@@ -1,12 +1,12 @@
 import angular from 'angular';
 import CampaignModule from './campaign/campaign.module';
-import httpModule from './http/http.module';
+import HttpModule from './http/http.module';
 
-let servicesModule = angular.module('app.services', [
+const ServicesModule = angular.module('app.services', [
         CampaignModule,
-        httpModule
+        HttpModule
     ])
 
     .name;
 
-export default servicesModule;
+export default ServicesModule;

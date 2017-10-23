@@ -1,10 +1,10 @@
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
-import campaignStatsComponent from './campaign-stats.component';
+import CampaignStatsComponent from './campaign-stats.component';
 import highcharts from 'highcharts-ng';
 import 'highcharts-ng/dist/highcharts-ng.css';
 
-let campaignStatsModule = angular.module('app.campaign-stats', [
+const CampaignStatsModule = angular.module('app.campaign-stats', [
         uiRouter,
         highcharts,
     ])
@@ -19,8 +19,8 @@ let campaignStatsModule = angular.module('app.campaign-stats', [
             });
     })
 
-    .component('campaignStats', campaignStatsComponent)
+    .component('campaignStats', CampaignStatsComponent)
 
     .name;
 
-export default campaignStatsModule;
+export default CampaignStatsModule;

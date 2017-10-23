@@ -3,7 +3,7 @@ import httpInterceptor from './http.interceptor';
 import notification from 'angular-ui-notification';
 import 'angular-ui-notification/dist/angular-ui-notification.min.css';
 
-let httpInterceptorModule = angular.module('app.http', [notification])
+const httpInterceptorModule = angular.module('app.http', [notification])
 
     .service('HttpInterceptor', httpInterceptor)
 

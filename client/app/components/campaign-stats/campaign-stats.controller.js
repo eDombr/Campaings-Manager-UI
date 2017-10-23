@@ -1,4 +1,4 @@
-class campaignStatsController {
+class CampaignStatsController {
     constructor($stateParams, Campaign, CHART_CONFIG) {
 		"ngInject";
 
@@ -63,4 +63,4 @@ class campaignStatsController {
     }
 }
 
-export default campaignStatsController;
+export default CampaignStatsController;

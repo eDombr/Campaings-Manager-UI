@@ -3,11 +3,11 @@ import CampaignStatsModule from './campaign-stats/campaign-stats.module';
 import CampaignsListModule from './campaigns-list/campaigns-list.module';
 
 
-let componentModule = angular.module('app.components', [
+const ComponentModule = angular.module('app.components', [
         CampaignStatsModule,
         CampaignsListModule
     ])
 
     .name;
 
-export default componentModule;
+export default ComponentModule;

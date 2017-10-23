@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-let constantsModule = angular.module('app.constants', [])
+const constantsModule = angular.module('app.constants', [])
     // CHART_CONFIG - constant for a default view of a chart from 'hightcharts.js' library
     .constant('CHART_CONFIG', {
         chart: {

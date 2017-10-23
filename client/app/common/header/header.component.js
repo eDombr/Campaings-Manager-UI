@@ -1,8 +1,8 @@
 import template from './header.html';
 import './header.scss';
 
-let headerComponent = {
+const HeaderComponent = {
     template
 };
 
-export default headerComponent;
+export default HeaderComponent;

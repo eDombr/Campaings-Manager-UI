@@ -1,4 +1,4 @@
-class httpInterceptorService {
+class HttpInterceptor {
     constructor($injector, $q) {
         'ngInject';
 
@@ -28,4 +28,4 @@ class httpInterceptorService {
     }
 }
 
-export default httpInterceptorService;
+export default HttpInterceptor;

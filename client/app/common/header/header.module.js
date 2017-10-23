@@ -1,13 +1,13 @@
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
-import headerComponent from './header.component';
+import HeaderComponent from './header.component';
 
-let headerModule = angular.module('header', [
+const HeaderModule = angular.module('header', [
         uiRouter
     ])
 
-    .component('header', headerComponent)
+    .component('header', HeaderComponent)
 
     .name;
 
-export default headerModule;
+export default HeaderModule;

@@ -1,8 +1,8 @@
 import angular from 'angular';
 import uiRouter from '@uirouter/angularjs';
-import campaignsListComponent from './campaigns-list.component';
+import CampaignsListComponent from './campaigns-list.component';
 
-let campaignsListModule = angular.module('app.Campaigns-list', [
+const CampaignsListModule = angular.module('app.campaigns-list', [
         uiRouter
     ])
 
@@ -18,8 +18,8 @@ let campaignsListModule = angular.module('app.Campaigns-list', [
             });
     })
 
-    .component('campaignsList', campaignsListComponent)
+    .component('campaignsList', CampaignsListComponent)
 
     .name;
 
-export default campaignsListModule;
+export default CampaignsListModule;
