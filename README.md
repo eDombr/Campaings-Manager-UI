@@ -5,7 +5,7 @@
 clone the repository
 
 ```bash
-get clone https://github.com/eDombr/Campaings-Manager-UI.git
+git clone https://github.com/eDombr/Campaings-Manager-UI.git
 ```
 go to the project folder and install packages
 
