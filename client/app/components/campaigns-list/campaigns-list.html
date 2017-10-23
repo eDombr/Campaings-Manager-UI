@@ -25,10 +25,10 @@
                             </button>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <button class="dropdown-item" ng-show="campaign.isActive" ng-click="$ctrl.changeStatus(campaign.id, campaign.isActive)">
+                                <button class="dropdown-item" ng-show="campaign.isActive" ng-click="$ctrl.changeStatus(campaign.id)">
                                     Deactivate
                                 </button>
-                                <button class="dropdown-item" ng-show="!campaign.isActive" ng-click="$ctrl.changeStatus(campaign.id, campaign.isActive)">
+                                <button class="dropdown-item" ng-show="!campaign.isActive" ng-click="$ctrl.changeStatus(campaign.id)">
                                     Activate
                                 </button>
                                 <a class="dropdown-item" ui-sref="campaign-stats({campaignId: campaign.id})">

@@ -3,7 +3,6 @@ import controller from './campaign-stats.controller';
 import './campaign-stats.scss';
 
 let campaignStatsComponent = {
-    bindings: {},
     template,
     controller
 };

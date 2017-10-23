@@ -15,6 +15,7 @@ let constantsModule = angular.module('app.constants', [])
             }
         },
         series: [{
+            name: 'Impression',
             data: []
         }],
         title: {
@@ -30,8 +31,8 @@ let constantsModule = angular.module('app.constants', [])
         active: 'ACTIVE',
         inactive: 'INACTIVE'
     })
-    // BASE_URL - basic API url, which is used for all HTTP requests
-    .constant('BASE_URL', 'https://5cd3f999-f49f-4e42-8b8b-173c7185f093.mock.pstmn.io/campaigns')
+    // API_URL - basic API url, which is used for all HTTP requests
+    .constant('API_URL', 'https://5cd3f999-f49f-4e42-8b8b-173c7185f093.mock.pstmn.io/campaigns')
 
     .name;
 

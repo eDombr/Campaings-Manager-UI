@@ -31,15 +31,14 @@ class campaignsListController {
             );
     }
 
-    changeStatus(id, isActive) {
-            this._Campaign.changeStatus(id, isActive)
+    changeStatus(id) {
+            let campaignToActivate = this.campaigns.find(campaign => campaign.id === id);
+
+            this._Campaign.changeStatus(id, campaignToActivate.isActive)
                 .then(
                     data => {
                         // toggle status for specific campaign
-                        let campaignToActivate = this.campaigns.find(campaign => campaign.id === id);
-                        if (campaignToActivate) {
-                            campaignToActivate.isActive = !campaignToActivate.isActive;
-                        }
+                        campaignToActivate.isActive = !campaignToActivate.isActive;
                     }
                 )
     }

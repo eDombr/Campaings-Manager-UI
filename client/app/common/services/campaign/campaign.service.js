@@ -1,17 +1,17 @@
 class CampaignService {
-    constructor($http, BASE_URL) {
+    constructor($http, API_URL) {
         'ngInject';
 
         this._$http = $http;
 
-        this.baseUrl = BASE_URL;
+        this.apiUrl = API_URL;
     }
 
     /**
      * getCampaigns - gets all campaigns
      */
     getCampaigns() {
-        return this._$http.get(`${this.baseUrl}`);
+        return this._$http.get(`${this.apiUrl}`);
     }
 
     /**
@@ -21,9 +21,9 @@ class CampaignService {
      */
     changeStatus(id, isActivate) {
         if (isActivate) {
-            return this._$http.post(`${this.baseUrl}/${id}/deactivate`);
+            return this._$http.post(`${this.apiUrl}/${id}/deactivate`);
         } else {
-            return this._$http.post(`${this.baseUrl}/${id}/activate`);
+            return this._$http.post(`${this.apiUrl}/${id}/activate`);
         }
     }
 
@@ -32,7 +32,7 @@ class CampaignService {
      * @param {*} id - campaign's id
      */
     getCampaignStats(id) {
-        return this._$http.get(`${this.baseUrl}/${id}/stats`);
+        return this._$http.get(`${this.apiUrl}/${id}/stats`);
     }
 }
 

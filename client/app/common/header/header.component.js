@@ -1,11 +1,8 @@
 import template from './header.html';
-import controller from './header.controller';
 import './header.scss';
 
 let headerComponent = {
-    bindings: {},
-    template,
-    controller
+    template
 };
 
 export default headerComponent;
