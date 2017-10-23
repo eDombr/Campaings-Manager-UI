@@ -4,8 +4,15 @@ class campaignsListController {
         'ngInject';
 
         this._Campaign = Campaign;
-
         this.campaignStatuses = CAMPAIGN_STATUSES;
+
+        this.init();
+    }
+
+    /**
+     * init - initial initialization
+     */
+    init() {
         this.campaigns = [];
         
         this.getCampaigns();
@@ -20,11 +27,7 @@ class campaignsListController {
                     // check campaign's status and add 'isActive' property
                     if (this.campaigns) {
                         this.campaigns.forEach(campaign => {
-                            if (this.checkStatus(campaign.status)) {
-                                campaign.isActive = true;
-                                return;
-                            }
-                            campaign.isActive = false;
+                            campaign.isActive = this.checkStatus(campaign.status);
                         })
                     }
                 }

@@ -3,17 +3,22 @@ class campaignStatsController {
 		"ngInject";
 
         this._Campaign = Campaign;
-
 		this.chartConfig = CHART_CONFIG;
-		
 		this.campaignId = $stateParams.campaignId;
-		this.campaigns = [];
+        
+        this.init();
+    }
+
+    /**
+     * init - initial initialization
+     */
+    init() {
+        this.campaigns = [];
 		this.currentCampaign = {};
 
         this.getCampaignStats(this.campaignId);
         this.getCampaigns();
     }
-
 	
     getCampaignStats(id) {
         this._Campaign.getCampaignStats(id)

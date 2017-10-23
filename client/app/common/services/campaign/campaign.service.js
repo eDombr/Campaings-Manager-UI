@@ -20,11 +20,9 @@ class CampaignService {
      * @param {*} isActivate - parameter to check a status
      */
     changeStatus(id, isActivate) {
-        if (isActivate) {
-            return this._$http.post(`${this.apiUrl}/${id}/deactivate`);
-        } else {
-            return this._$http.post(`${this.apiUrl}/${id}/activate`);
-        }
+        let action = isActivate ? 'deactivate' : 'activate';
+
+        return this._$http.post(`${this.apiUrl}/${id}/${action}`);
     }
 
     /**
