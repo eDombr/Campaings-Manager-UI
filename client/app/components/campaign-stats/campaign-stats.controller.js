@@ -17,12 +17,15 @@ class campaignStatsController {
         this.getCampaigns();
     }
 
+	
     getCampaignStats(id) {
         this._Campaign.getCampaignStats(id)
             .then(
                 data => {
 					this.campaignStats = data;
 
+
+					// transform a campaign stats's data to a data for charts
 					if(this.campaignStats) {
 						this.campaignStats.forEach(item => {
 							this.chartConfig.series[0].data.push(item.impressions);
@@ -43,6 +46,7 @@ class campaignStatsController {
                 data => {
 					this.campaigns = data;
 
+					// finding the current campaign by an id from stateParams
 					if(this.campaigns) {
 						this.currentCampaign = this.campaigns.find(item => item.id === this.campaignId);
 					}

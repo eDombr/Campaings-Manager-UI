@@ -4,9 +4,6 @@ $bgColor:        #fff;
 
 body {
    height: 100%;
-   // browsers default to 16px for font-size,
-   // so setting top-level font-size to 62.5%
-   // scales 1rem to equal 10px.
    font-family: 'Roboto', sans-serif;
    background-color: $bgColor !important;
 }

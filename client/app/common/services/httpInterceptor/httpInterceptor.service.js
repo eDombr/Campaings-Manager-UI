@@ -6,10 +6,21 @@ class httpInterceptorService {
         this._$q = $q;
     }
 
+    /**
+     * response - handles all response from a server
+     * @param {*} res - response object
+     * @return - data from response object
+     */
     response = (res) => {
+        console.log(res);
         return res.data;
     }
 
+    /**
+     * responseError - handles errors from a server, shows them in a notification popup
+     * @param {*} err - error's object
+     * @return - promise of error
+     */
     responseError = (err) => {
         const _Notification = this._$injector.get('Notification');
 
